@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+
+    <include file="db_changelog/v1.0/create_tables.sql" relativeToChangelogFile="true"/>
+
+<!--    Удалить на прод-->
+    <include file="db_changelog/v1.0/insert_data.sql" relativeToChangelogFile="true"/>
+
+
+</databaseChangeLog>
