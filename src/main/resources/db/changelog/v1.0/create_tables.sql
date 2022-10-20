@@ -27,14 +27,14 @@ create table subscriptions
     id          bigserial PRIMARY KEY,
     name        text NOT NULL,
     price       int  NOT NULL,
-    description text NOT NULL,
+    description text NOT NULL
 );
 
 create table authors
 (
     id          bigserial PRIMARY KEY,
     name        varchar(256) NOT NULL,
-    description varchar      NOT NULL,
+    description varchar      NOT NULL
 );
 
 create table audios
@@ -53,10 +53,8 @@ create table users
     username                     varchar(256) NOT NULL,
     password                     varchar(256) NOT NULL,
     city_id                      bigint       NOT NULL,
-    current_user_subscription_id bigint       ,
     author                       bigint       NOT NULL,
     FOREIGN KEY (city_id) REFERENCES cities (id),
---     FOREIGN KEY (current_user_subscription_id) REFERENCES user_subscriptions (id),
     FOREIGN KEY (author) REFERENCES authors (id)
 );
 
@@ -85,19 +83,16 @@ create table user_subscriptions
     is_valid        boolean NOT NULL,
     host_user_id    bigint,
     subscription_id bigint  NOT NULL,
-    FOREIGN KEY (host_user_id) REFERENCES users (id)
-        FOREIGN KEY (subscription_id) REFERENCES subscriptions (id)
+    FOREIGN KEY (host_user_id) REFERENCES users (id),
+    FOREIGN KEY (subscription_id) REFERENCES subscriptions (id)
 );
-
-alter table users
-add constraint FOREIGN KEY (current_user_subscription_id) REFERENCES user_subscriptions (id),
 
 create table uploaded_by_users
 (
     user_id  bigserial,
     audio_id bigserial,
-    PRIMARY KEY(user_id, audio_id)
-    FOREIGN KEY (user_id) REFERENCES users (id)
+    PRIMARY KEY(user_id, audio_id),
+    FOREIGN KEY (user_id) REFERENCES users (id),
     FOREIGN KEY (audio_id) REFERENCES audios (id)
-)
+);
 

@@ -34,13 +34,12 @@ values
     ('Third audio', 3),
     ('Fourth audio', 3);
 
-insert into users (username, password,
-                   city_id, current_user_subscription_id, author)
+insert into users (username, password, city_id, author)
 values
-    ('Aleksandr', 'Aleksandr', 1, null, 1),
-    ('Danil', 'Danil', 2, null, 1),
-    ('Egor', 'Egor', 3, null, 2),
-    ('Anna', 'Anna', 4, null, 3);
+    ('Aleksandr', 'Aleksandr', 1, 1),
+    ('Danil', 'Danil', 2, 1),
+    ('Egor', 'Egor', 3, 2),
+    ('Anna', 'Anna', 4, 3);
 
 insert into tickets (price, concert_id, user_id)
 values
@@ -73,19 +72,3 @@ values
     (3, 3),
     (4, 1),
     (4, 4);
-
-update users
-set current_user_subscription_id = 1
-where id = 1;
-
-update users
-set current_user_subscription_id = 2
-where id = 2;
-
-update users
-set current_user_subscription_id = 3
-where id = 3;
-
-update users
-set current_user_subscription_id = 3
-where id = 3;
