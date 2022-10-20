@@ -51,10 +51,10 @@ values
 
 insert into user_playlists (title, description, user_id)
 values
-    ('Aleksandr playlist1', 'depressive playlist1', 1),
-    ('Aleksandr playlist2', 'positive playlist2', 1),
-    ('Danil playlist', 'Danil playlist', 1),
-    ('Egor playlist', 'Egor playlist', 1);
+    ('Aleksandr playlist1', 'Aleksandr playlist', 1),
+    ('Boris playlist2', 'Boris playlist', 2),
+    ('Danil playlist', 'Danil playlist', 3),
+    ('Egor playlist', 'Egor playlist', 4);
 
 insert into user_subscriptions (is_valid, host_user_id, subscription_id)
 values
