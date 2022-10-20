@@ -5,6 +5,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import java.util.List;
 
 @Entity
@@ -19,9 +20,11 @@ public class User {
     @Column(name = "id")
     private Long id;
 
+    @NotBlank(message = "Username is mandatory")
     @Column(name = "username")
     private String username;
 
+    @NotBlank(message = "Password is mandatory")
     @Column(name = "password")
     private String password;
 
@@ -36,18 +39,20 @@ public class User {
             inverseJoinColumns = @JoinColumn(name = "audio_id"))
     private List<Audio> audios;
 
-    @OneToMany(
+    @OneToOne(
             mappedBy = "user",
             fetch = FetchType.LAZY)
-    private List<UserSubscription> userSubscriptions;
+    private UserSubscription userSubscription;
 
     @OneToMany(
             mappedBy = "user",
             fetch = FetchType.LAZY)
     private List<Ticket> tickets;
 
-    @OneToOne(mappedBy = "user")
-    private UserPlaylist userPlaylist;
+    @OneToMany(
+            mappedBy = "user",
+            fetch = FetchType.LAZY)
+    private List<UserPlaylist> userPlaylists;
 
 
     @Override

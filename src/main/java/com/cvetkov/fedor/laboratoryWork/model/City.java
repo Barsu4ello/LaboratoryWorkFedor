@@ -5,6 +5,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @Entity
@@ -19,9 +21,11 @@ public class City {
     @Column(name = "id")
     private Long id;
 
+    @NotBlank(message = "CityName is mandatory")
     @Column(name = "city_name")
     private String cityName;
 
+    @NotNull(message = "Country is mandatory")
     @ManyToOne
     @JoinColumn(name = "country_id")
     Country country;

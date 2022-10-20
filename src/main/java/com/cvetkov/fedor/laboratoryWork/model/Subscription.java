@@ -5,6 +5,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Positive;
 import java.util.List;
 
 @Entity
@@ -19,12 +21,15 @@ public class Subscription {
     @Column(name = "id")
     private Long id;
 
+    @NotBlank(message = "Name is mandatory")
     @Column(name = "name")
     private String name;
 
+    @Positive(message = "Price must be greater than zero")
     @Column(name = "price")
     private Integer price;
 
+    @NotBlank(message = "Description is mandatory")
     @Column(name = "description")
     private String description;
 

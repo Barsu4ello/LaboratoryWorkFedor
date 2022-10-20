@@ -5,6 +5,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import java.util.List;
 
 @Entity
@@ -19,9 +20,11 @@ public class Author {
     @Column(name = "id")
     private Long id;
 
+    @NotBlank(message = "Name is mandatory")
     @Column(name = "name")
     private String name;
 
+    @NotBlank(message = "Description is mandatory")
     @Column(name = "description")
     private String description;
 

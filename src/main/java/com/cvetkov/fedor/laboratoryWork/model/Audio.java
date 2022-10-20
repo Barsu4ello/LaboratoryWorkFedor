@@ -5,6 +5,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @Entity
@@ -19,12 +21,14 @@ public class Audio {
     @Column(name = "id")
     private Long id;
 
+    @NotBlank(message = "Title is mandatory")
     @Column(name = "title")
     private String title;
 
     @Column(name = "audio")
     private byte audio;
 
+    @NotNull(message = "Title is mandatory")
     @ManyToOne
     @JoinColumn(name = "author_id")
     private Author author;

@@ -5,6 +5,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "user_subscriptions")
@@ -18,14 +19,17 @@ public class UserSubscription {
     @Column(name = "id")
     private Long id;
 
+    @NotNull(message = "IsValid is mandatory")
     @Column(name = "is_valid")
     private boolean isValid;
 
+    @NotNull(message = "Subscription is mandatory")
     @ManyToOne
     @JoinColumn(name = "subscription_id")
     Subscription subscription;
 
-    @ManyToOne
+    @NotNull(message = "User is mandatory")
+    @OneToOne
     @JoinColumn(name = "host_user_id")
     User user;
 

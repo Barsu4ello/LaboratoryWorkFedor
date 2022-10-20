@@ -5,6 +5,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "user_playlists")
@@ -18,13 +20,16 @@ public class UserPlaylist {
     @Column(name = "id")
     private Long id;
 
+    @NotBlank(message = "Title is mandatory")
     @Column(name = "title")
-    private String username;
+    private String title;
 
+    @NotBlank(message = "Description is mandatory")
     @Column(name = "description")
-    private String password;
+    private String description;
 
-    @OneToOne
+    @NotNull(message = "User is mandatory")
+    @ManyToOne
     @JoinColumn(name = "user_id")
     User user;
 
@@ -32,8 +37,8 @@ public class UserPlaylist {
     public String toString() {
         return "UserPlaylist{" +
                 "id=" + id +
-                ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
+                ", username='" + title + '\'' +
+                ", password='" + description + '\'' +
                 ", user=" + user.getId() +
                 '}';
     }
