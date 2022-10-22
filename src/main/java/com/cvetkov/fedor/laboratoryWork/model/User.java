@@ -30,7 +30,7 @@ public class User {
 
     @ManyToOne
     @JoinColumn(name = "author")
-    Author author;
+    private Author author;
 
     @ManyToMany
     @JoinTable(

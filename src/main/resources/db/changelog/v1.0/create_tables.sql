@@ -1,13 +1,13 @@
 create table countries
 (
     id           bigserial PRIMARY KEY,
-    country_name text NOT NULL
+    country_name varchar(256) NOT NULL
 );
 
 create table cities
 (
     id         bigserial PRIMARY KEY,
-    city_name  text   NOT NULL,
+    city_name  varchar(256)   NOT NULL,
     country_id bigint NOT NULL,
     FOREIGN KEY (country_id) REFERENCES countries (id)
 );
@@ -25,7 +25,7 @@ create table concerts
 create table subscriptions
 (
     id          bigserial PRIMARY KEY,
-    name        text NOT NULL,
+    name        varchar(256) NOT NULL,
     price       int  NOT NULL,
     description text NOT NULL
 );

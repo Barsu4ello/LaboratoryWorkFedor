@@ -26,12 +26,12 @@ public class UserSubscription {
     @NotNull(message = "Subscription is mandatory")
     @ManyToOne
     @JoinColumn(name = "subscription_id")
-    Subscription subscription;
+    private Subscription subscription;
 
     @NotNull(message = "User is mandatory")
     @OneToOne
     @JoinColumn(name = "host_user_id")
-    User user;
+    private User user;
 
     @Override
     public String toString() {

@@ -31,7 +31,7 @@ public class UserPlaylist {
     @NotNull(message = "User is mandatory")
     @ManyToOne
     @JoinColumn(name = "user_id")
-    User user;
+    private User user;
 
     @Override
     public String toString() {

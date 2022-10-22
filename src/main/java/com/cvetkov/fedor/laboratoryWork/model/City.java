@@ -28,7 +28,7 @@ public class City {
     @NotNull(message = "Country is mandatory")
     @ManyToOne
     @JoinColumn(name = "country_id")
-    Country country;
+    private Country country;
 
     @OneToMany(
             mappedBy = "city",

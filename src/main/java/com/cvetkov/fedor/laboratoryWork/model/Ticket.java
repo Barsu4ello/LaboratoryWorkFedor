@@ -27,11 +27,11 @@ public class Ticket {
     @NotNull(message = "Concert is mandatory")
     @ManyToOne
     @JoinColumn(name = "concert_id")
-    Concert concert;
+    private Concert concert;
 
     @ManyToOne
     @JoinColumn(name = "user_id")
-    User user;
+    private User user;
 
     @Override
     public String toString() {
