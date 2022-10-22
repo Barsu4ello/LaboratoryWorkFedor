@@ -13,6 +13,8 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 public class ConcertUpdate {
 
+    private Long id;
+
     @NotBlank(message = "Name is mandatory")
     private String name;
 

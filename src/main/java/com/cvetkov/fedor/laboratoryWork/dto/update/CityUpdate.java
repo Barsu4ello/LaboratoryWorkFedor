@@ -12,6 +12,8 @@ import javax.validation.constraints.NotNull;
 @AllArgsConstructor
 public class CityUpdate {
 
+    private Long id;
+
     @NotBlank(message = "CityName is mandatory")
     private String cityName;
 

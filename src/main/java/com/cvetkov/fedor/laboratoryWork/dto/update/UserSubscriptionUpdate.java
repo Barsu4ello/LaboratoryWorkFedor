@@ -13,6 +13,8 @@ import javax.validation.constraints.NotNull;
 @AllArgsConstructor
 public class UserSubscriptionUpdate {
 
+    private Long id;
+
     @NotNull(message = "IsValid is mandatory")
     private boolean isValid;
 

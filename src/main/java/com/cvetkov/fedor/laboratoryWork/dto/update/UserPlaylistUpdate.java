@@ -12,6 +12,8 @@ import javax.validation.constraints.NotNull;
 @AllArgsConstructor
 public class UserPlaylistUpdate {
 
+    private Long id;
+
     @NotBlank(message = "Title is mandatory")
     private String title;
 

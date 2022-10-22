@@ -11,6 +11,8 @@ import javax.validation.constraints.NotBlank;
 @AllArgsConstructor
 public class UserUpdate {
 
+    private Long id;
+
     @NotBlank(message = "Username is mandatory")
     private String username;
 

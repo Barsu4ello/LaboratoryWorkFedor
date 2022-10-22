@@ -12,6 +12,8 @@ import javax.validation.constraints.NotNull;
 @AllArgsConstructor
 public class AudioUpdate {
 
+    private Long id;
+
     @NotBlank(message = "Title is mandatory")
     private String title;
 

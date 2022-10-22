@@ -12,6 +12,8 @@ import javax.validation.constraints.Positive;
 @AllArgsConstructor
 public class TicketUpdate {
 
+    private Long id;
+
     @Positive(message = "Price must be greater than zero")
     private Integer price;
 
