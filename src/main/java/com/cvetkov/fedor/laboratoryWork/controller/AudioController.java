@@ -1,9 +1,17 @@
 package com.cvetkov.fedor.laboratoryWork.controller;
 
+import com.cvetkov.fedor.laboratoryWork.dto.request.AudioRequest;
+import com.cvetkov.fedor.laboratoryWork.dto.response.AudioResponse;
+import com.cvetkov.fedor.laboratoryWork.dto.update.AudioUpdate;
 import com.cvetkov.fedor.laboratoryWork.service.AudioService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
+import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
+import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
@@ -11,4 +19,34 @@ import org.springframework.web.bind.annotation.RestController;
 public class AudioController {
 
     private final AudioService audioService;
+
+    @GetMapping
+    public Page<AudioResponse> getAllAudios(@PageableDefault(size = 5) Pageable pageable) {
+        return audioService.getAllPage(pageable);
+    }
+
+    @GetMapping("/all-audio")
+    public List<AudioResponse> getAllAudios() {
+        return audioService.getAllList();
+    }
+
+    @GetMapping("/{id}")
+    public AudioResponse getAudioById(@PathVariable Long id) {
+        return audioService.findById(id);
+    }
+
+    @PostMapping
+    public void addAudio(@Valid @RequestBody AudioRequest audioRequest) {
+        audioService.save(audioRequest);
+    }
+
+    @PutMapping
+    public void updateAudio(@Valid @RequestBody AudioUpdate audioUpdate) {
+        audioService.update(audioUpdate);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteAudio(@PathVariable Long id) {
+        audioService.disableById(id);
+    }
 }

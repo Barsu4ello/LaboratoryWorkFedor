@@ -37,11 +37,12 @@ public class Concert {
     @NotNull(message = "City is mandatory")
     @ManyToOne
     @JoinColumn(name = "city_id")
-    City city;
+    private City city;
 
     @OneToMany(
             mappedBy = "concert",
-            fetch = FetchType.LAZY)
+            fetch = FetchType.LAZY,
+            cascade = CascadeType.REMOVE)
     private List<Ticket> tickets;
 
     @Override

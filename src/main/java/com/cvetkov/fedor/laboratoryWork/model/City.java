@@ -28,7 +28,7 @@ public class City {
     @NotNull(message = "Country is mandatory")
     @ManyToOne
     @JoinColumn(name = "country_id")
-    Country country;
+    private Country country;
 
     @OneToMany(
             mappedBy = "city",
@@ -37,7 +37,8 @@ public class City {
 
     @OneToMany(
             mappedBy = "city",
-            fetch = FetchType.LAZY)
+            fetch = FetchType.LAZY,
+            cascade = CascadeType.REMOVE)
     private List<Concert> concerts;
 
     @Override

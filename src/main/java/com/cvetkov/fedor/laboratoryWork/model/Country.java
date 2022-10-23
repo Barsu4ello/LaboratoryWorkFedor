@@ -26,7 +26,8 @@ public class Country {
 
     @OneToMany(
             mappedBy = "country",
-            fetch = FetchType.LAZY)
+            fetch = FetchType.LAZY,
+            cascade = CascadeType.REMOVE)
     private List<City> cities;
 
     @Override

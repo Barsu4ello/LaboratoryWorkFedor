@@ -26,7 +26,7 @@ public class Audio {
     private String title;
 
     @Column(name = "audio")
-    private byte audio;
+    private byte[] audio;
 
     @NotNull(message = "Title is mandatory")
     @ManyToOne
