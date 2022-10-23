@@ -7,8 +7,8 @@ create table countries
 create table cities
 (
     id         bigserial PRIMARY KEY,
-    city_name  varchar(256)   NOT NULL,
-    country_id bigint NOT NULL,
+    city_name  varchar(256) NOT NULL,
+    country_id bigint       NOT NULL,
     FOREIGN KEY (country_id) REFERENCES countries (id)
 );
 
@@ -26,8 +26,8 @@ create table subscriptions
 (
     id          bigserial PRIMARY KEY,
     name        varchar(256) NOT NULL,
-    price       int  NOT NULL,
-    description text NOT NULL
+    price       int          NOT NULL,
+    description text         NOT NULL
 );
 
 create table authors
@@ -49,11 +49,12 @@ create table audios
 
 create table users
 (
-    id                           bigserial PRIMARY KEY,
-    username                     varchar(256) NOT NULL,
-    password                     varchar(256) NOT NULL,
-    city_id                      bigint       NOT NULL,
-    author                       bigint       NOT NULL,
+    id          bigserial PRIMARY KEY,
+    username    varchar(256) NOT NULL,
+    password    varchar(256) NOT NULL,
+    user_status varchar(128) NOT NULL,
+    city_id     bigint       NOT NULL,
+    author      bigint       NOT NULL,
     FOREIGN KEY (city_id) REFERENCES cities (id),
     FOREIGN KEY (author) REFERENCES authors (id)
 );
@@ -91,7 +92,7 @@ create table uploaded_by_users
 (
     user_id  bigserial,
     audio_id bigserial,
-    PRIMARY KEY(user_id, audio_id),
+    PRIMARY KEY (user_id, audio_id),
     FOREIGN KEY (user_id) REFERENCES users (id),
     FOREIGN KEY (audio_id) REFERENCES audios (id)
 );

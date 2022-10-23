@@ -35,7 +35,8 @@ public class Author {
 
     @OneToMany(
             mappedBy = "author",
-            fetch = FetchType.LAZY)
+            fetch = FetchType.LAZY,
+            cascade = CascadeType.REMOVE)
     private List<Audio> audios;
 
     @Override

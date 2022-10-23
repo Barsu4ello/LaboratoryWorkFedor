@@ -3,9 +3,11 @@ package com.cvetkov.fedor.laboratoryWork.service.impl;
 import com.cvetkov.fedor.laboratoryWork.dto.request.UserRequest;
 import com.cvetkov.fedor.laboratoryWork.dto.response.UserResponse;
 import com.cvetkov.fedor.laboratoryWork.dto.update.UserUpdate;
+import com.cvetkov.fedor.laboratoryWork.enums.UserStatus;
 import com.cvetkov.fedor.laboratoryWork.exception.ObjectNotFoundException;
 import com.cvetkov.fedor.laboratoryWork.mapper.UserMapper;
 import com.cvetkov.fedor.laboratoryWork.mapper.UserPlaylistMapper;
+import com.cvetkov.fedor.laboratoryWork.model.User;
 import com.cvetkov.fedor.laboratoryWork.repository.UserRepository;
 import com.cvetkov.fedor.laboratoryWork.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -52,6 +54,10 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void deleteById(Long id) {
-        userRepository.deleteById(id);
+        User user = userRepository
+                .findById(id)
+                .orElseThrow(() -> new ObjectNotFoundException("User with id " + id + " not found"));
+        user.setStatus(UserStatus.INACTIVE);
+        userRepository.save(user);
     }
 }

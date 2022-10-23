@@ -1,10 +1,7 @@
 package com.cvetkov.fedor.laboratoryWork.controller;
 
-import com.cvetkov.fedor.laboratoryWork.dto.request.AuthorRequest;
 import com.cvetkov.fedor.laboratoryWork.dto.request.ConcertRequest;
-import com.cvetkov.fedor.laboratoryWork.dto.response.AuthorResponse;
 import com.cvetkov.fedor.laboratoryWork.dto.response.ConcertResponse;
-import com.cvetkov.fedor.laboratoryWork.dto.update.AuthorUpdate;
 import com.cvetkov.fedor.laboratoryWork.dto.update.ConcertUpdate;
 import com.cvetkov.fedor.laboratoryWork.service.ConcertService;
 import lombok.RequiredArgsConstructor;

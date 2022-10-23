@@ -5,10 +5,13 @@ import com.cvetkov.fedor.laboratoryWork.dto.response.AudioResponse;
 import com.cvetkov.fedor.laboratoryWork.dto.update.AudioUpdate;
 import com.cvetkov.fedor.laboratoryWork.model.Audio;
 import lombok.RequiredArgsConstructor;
+import org.modelmapper.Converter;
 import org.modelmapper.ModelMapper;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -17,6 +20,21 @@ import java.util.stream.Collectors;
 public class AudioMapper {
 
     private final ModelMapper mapper;
+
+    @PostConstruct
+    public void setupMapper() {
+        mapper.createTypeMap(Audio.class, AudioResponse.class)
+                .addMappings(m -> m.skip(AudioResponse::setAuthor)).setPostConverter(toAudioResponseConverter());
+    }
+
+    private Converter<Audio, AudioResponse> toAudioResponseConverter() {
+        return context -> {
+            Audio source = context.getSource();
+            AudioResponse destination = context.getDestination();
+            destination.setAuthor(source.getAuthor().getId());
+            return context.getDestination();
+        };
+    }
 
     public AudioResponse audioToAudioResponse(Audio audio) {
         return mapper.map(audio, AudioResponse.class);

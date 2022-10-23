@@ -2,17 +2,21 @@ package com.cvetkov.fedor.laboratoryWork.mapper;
 
 import com.cvetkov.fedor.laboratoryWork.dto.request.UserPlaylistRequest;
 import com.cvetkov.fedor.laboratoryWork.dto.request.UserRequest;
+import com.cvetkov.fedor.laboratoryWork.dto.response.TicketResponse;
 import com.cvetkov.fedor.laboratoryWork.dto.response.UserPlaylistResponse;
 import com.cvetkov.fedor.laboratoryWork.dto.response.UserResponse;
 import com.cvetkov.fedor.laboratoryWork.dto.update.UserPlaylistUpdate;
 import com.cvetkov.fedor.laboratoryWork.dto.update.UserUpdate;
+import com.cvetkov.fedor.laboratoryWork.model.Ticket;
 import com.cvetkov.fedor.laboratoryWork.model.User;
 import com.cvetkov.fedor.laboratoryWork.model.UserPlaylist;
 import lombok.RequiredArgsConstructor;
+import org.modelmapper.Converter;
 import org.modelmapper.ModelMapper;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -21,6 +25,22 @@ import java.util.stream.Collectors;
 public class UserPlaylistMapper {
 
     private final ModelMapper mapper;
+
+    @PostConstruct
+    public void setupMapper() {
+        mapper.createTypeMap(UserPlaylist.class, UserPlaylistResponse.class)
+                .addMappings(m -> m.skip(UserPlaylistResponse::setUser))
+                .setPostConverter(toUserPlaylistResponseConverter());
+    }
+
+    private Converter<UserPlaylist, UserPlaylistResponse> toUserPlaylistResponseConverter() {
+        return context -> {
+            UserPlaylist source = context.getSource();
+            UserPlaylistResponse destination = context.getDestination();
+            destination.setUser(source.getUser().getId());
+            return context.getDestination();
+        };
+    }
 
     public UserPlaylistResponse userPlaylistToUserPlaylistResponse(UserPlaylist userPlaylist) {
         return mapper.map(userPlaylist, UserPlaylistResponse.class);

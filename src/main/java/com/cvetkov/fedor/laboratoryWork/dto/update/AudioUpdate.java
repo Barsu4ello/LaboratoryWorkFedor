@@ -18,7 +18,7 @@ public class AudioUpdate {
     private String title;
 
     @NotNull(message = "Audio is mandatory")
-    private byte audio;
+    private byte[] audio;
 
     @NotNull(message = "Title is mandatory")
     private Long author;

@@ -35,7 +35,8 @@ public class Subscription {
 
     @OneToMany(
             mappedBy = "subscription",
-            fetch = FetchType.LAZY)
+            fetch = FetchType.LAZY,
+            cascade = CascadeType.REMOVE)
     private List<UserSubscription> userSubscriptions;
 
     @Override

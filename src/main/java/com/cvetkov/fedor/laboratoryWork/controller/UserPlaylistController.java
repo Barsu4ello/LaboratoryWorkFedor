@@ -1,11 +1,8 @@
 package com.cvetkov.fedor.laboratoryWork.controller;
 
 import com.cvetkov.fedor.laboratoryWork.dto.request.UserPlaylistRequest;
-import com.cvetkov.fedor.laboratoryWork.dto.request.UserRequest;
 import com.cvetkov.fedor.laboratoryWork.dto.response.UserPlaylistResponse;
-import com.cvetkov.fedor.laboratoryWork.dto.response.UserResponse;
 import com.cvetkov.fedor.laboratoryWork.dto.update.UserPlaylistUpdate;
-import com.cvetkov.fedor.laboratoryWork.dto.update.UserUpdate;
 import com.cvetkov.fedor.laboratoryWork.service.UserPlaylistService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;

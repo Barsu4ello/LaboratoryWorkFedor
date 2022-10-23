@@ -41,7 +41,8 @@ public class Concert {
 
     @OneToMany(
             mappedBy = "concert",
-            fetch = FetchType.LAZY)
+            fetch = FetchType.LAZY,
+            cascade = CascadeType.REMOVE)
     private List<Ticket> tickets;
 
     @Override

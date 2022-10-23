@@ -13,6 +13,6 @@ public class UserSubscriptionResponse {
 
     private Long id;
     private boolean isValid;
-    private Subscription subscription;
-    private User user;
+    private Long subscription;
+    private Long user;
 }

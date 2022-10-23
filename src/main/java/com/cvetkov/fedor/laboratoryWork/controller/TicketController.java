@@ -1,10 +1,7 @@
 package com.cvetkov.fedor.laboratoryWork.controller;
 
-import com.cvetkov.fedor.laboratoryWork.dto.request.SubscriptionRequest;
 import com.cvetkov.fedor.laboratoryWork.dto.request.TicketRequest;
-import com.cvetkov.fedor.laboratoryWork.dto.response.SubscriptionResponse;
 import com.cvetkov.fedor.laboratoryWork.dto.response.TicketResponse;
-import com.cvetkov.fedor.laboratoryWork.dto.update.SubscriptionUpdate;
 import com.cvetkov.fedor.laboratoryWork.dto.update.TicketUpdate;
 import com.cvetkov.fedor.laboratoryWork.service.TicketService;
 import lombok.RequiredArgsConstructor;

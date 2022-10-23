@@ -11,6 +11,6 @@ public class AudioResponse{
 
     private Long id;
     private String title;
-    private byte audio;
+    private byte[] audio;
     private Long author;
 }

@@ -2,17 +2,21 @@ package com.cvetkov.fedor.laboratoryWork.mapper;
 
 import com.cvetkov.fedor.laboratoryWork.dto.request.AuthorRequest;
 import com.cvetkov.fedor.laboratoryWork.dto.request.CityRequest;
+import com.cvetkov.fedor.laboratoryWork.dto.response.AudioResponse;
 import com.cvetkov.fedor.laboratoryWork.dto.response.AuthorResponse;
 import com.cvetkov.fedor.laboratoryWork.dto.response.CityResponse;
 import com.cvetkov.fedor.laboratoryWork.dto.update.AuthorUpdate;
 import com.cvetkov.fedor.laboratoryWork.dto.update.CityUpdate;
+import com.cvetkov.fedor.laboratoryWork.model.Audio;
 import com.cvetkov.fedor.laboratoryWork.model.Author;
 import com.cvetkov.fedor.laboratoryWork.model.City;
 import lombok.RequiredArgsConstructor;
+import org.modelmapper.Converter;
 import org.modelmapper.ModelMapper;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -21,6 +25,21 @@ import java.util.stream.Collectors;
 public class CityMapper {
 
     private final ModelMapper mapper;
+
+    @PostConstruct
+    public void setupMapper() {
+        mapper.createTypeMap(City.class, CityResponse.class)
+                .addMappings(m -> m.skip(CityResponse::setCountry)).setPostConverter(toCityResponseConverter());
+    }
+
+    private Converter<City, CityResponse> toCityResponseConverter() {
+        return context -> {
+            City source = context.getSource();
+            CityResponse destination = context.getDestination();
+            destination.setCountry(source.getCountry().getId());
+            return context.getDestination();
+        };
+    }
 
     public CityResponse cityToCityResponse(City city) {
         return mapper.map(city, CityResponse.class);

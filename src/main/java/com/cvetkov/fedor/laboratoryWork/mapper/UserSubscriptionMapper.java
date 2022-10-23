@@ -9,10 +9,12 @@ import com.cvetkov.fedor.laboratoryWork.dto.update.UserSubscriptionUpdate;
 import com.cvetkov.fedor.laboratoryWork.model.UserPlaylist;
 import com.cvetkov.fedor.laboratoryWork.model.UserSubscription;
 import lombok.RequiredArgsConstructor;
+import org.modelmapper.Converter;
 import org.modelmapper.ModelMapper;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -21,6 +23,24 @@ import java.util.stream.Collectors;
 public class UserSubscriptionMapper {
 
     private final ModelMapper mapper;
+
+    @PostConstruct
+    public void setupMapper() {
+        mapper.createTypeMap(UserSubscription.class, UserSubscriptionResponse.class)
+                .addMappings(m -> m.skip(UserSubscriptionResponse::setUser))
+                .addMappings(m -> m.skip(UserSubscriptionResponse::setSubscription))
+                .setPostConverter(toUserSubscriptionResponseConverter());
+    }
+
+    private Converter<UserSubscription, UserSubscriptionResponse> toUserSubscriptionResponseConverter() {
+        return context -> {
+            UserSubscription source = context.getSource();
+            UserSubscriptionResponse destination = context.getDestination();
+            destination.setUser(source.getUser().getId());
+            destination.setSubscription(source.getSubscription().getId());
+            return context.getDestination();
+        };
+    }
 
     public UserSubscriptionResponse userSubscriptionToUserSubscriptionResponse(UserSubscription userSubscription) {
         return mapper.map(userSubscription, UserSubscriptionResponse.class);
