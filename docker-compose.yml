@@ -1,0 +1,28 @@
+version: "3.9"
+
+services:
+  # Application
+  csr:
+    image: fedor/laboratory:latest
+    container_name: APP
+    restart: always
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    ports:
+      - 8080:8080
+    depends_on:
+      - database-postgres
+
+  #  PostgreSQL
+  database-postgres:
+    image: postgres:14
+    container_name: postgres
+    restart: always
+    environment:
+      - POSTGRES_DB=laboratory_work_fedor
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=Linkin
+    ports:
+      - 5433:5432
+#    volumes:
+#      - ./postgres-data:/var/lib/postgresql/data
