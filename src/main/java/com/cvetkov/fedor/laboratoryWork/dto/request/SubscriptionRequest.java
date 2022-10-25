@@ -13,6 +13,8 @@ import javax.validation.constraints.Positive;
 @AllArgsConstructor
 public class SubscriptionRequest {
 
+    private Long id;
+
     @NotBlank(message = "Name is mandatory")
     private String name;
 

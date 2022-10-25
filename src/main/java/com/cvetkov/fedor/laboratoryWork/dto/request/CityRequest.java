@@ -13,9 +13,11 @@ import javax.validation.constraints.NotNull;
 @AllArgsConstructor
 public class CityRequest {
 
+    private Long id;
+
     @NotBlank(message = "CityName is mandatory")
     private String cityName;
 
     @NotNull(message = "Country is mandatory")
-    private Long country;
+    private Long countryId;
 }

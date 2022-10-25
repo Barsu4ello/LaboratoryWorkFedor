@@ -21,5 +21,5 @@ public class UserPlaylistUpdate {
     private String description;
 
     @NotNull(message = "User is mandatory")
-    private Long user;
+    private Long userId;
 }
