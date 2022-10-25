@@ -25,5 +25,5 @@ public class ConcertUpdate {
     private LocalDateTime concertDate;
 
     @NotNull(message = "City is mandatory")
-    private Long city;
+    private Long cityId;
 }

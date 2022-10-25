@@ -53,8 +53,8 @@ create table users
     username    varchar(256) NOT NULL,
     password    varchar(256) NOT NULL,
     user_status varchar(128) NOT NULL,
-    city_id     bigint       NOT NULL,
-    author      bigint       NOT NULL,
+    city_id     bigint      ,
+    author      bigint      ,
     FOREIGN KEY (city_id) REFERENCES cities (id),
     FOREIGN KEY (author) REFERENCES authors (id)
 );

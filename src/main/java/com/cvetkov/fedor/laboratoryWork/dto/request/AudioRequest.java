@@ -12,12 +12,13 @@ import javax.validation.constraints.NotNull;
 @AllArgsConstructor
 public class AudioRequest {
 
+    private Long id;
+
     @NotBlank(message = "Title is mandatory")
     private String title;
 
-    @NotNull(message = "Audio is mandatory")
     private byte[] audio;
 
-    @NotNull(message = "Title is mandatory")
-    private Long author;
+    @NotNull(message = "Author is mandatory")
+    private Long authorId;
 }

@@ -2,6 +2,7 @@ package com.cvetkov.fedor.laboratoryWork.dto.update;
 
 import com.cvetkov.fedor.laboratoryWork.model.Subscription;
 import com.cvetkov.fedor.laboratoryWork.model.User;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -19,8 +20,8 @@ public class UserSubscriptionUpdate {
     private boolean isValid;
 
     @NotNull(message = "Subscription is mandatory")
-    private Subscription subscription;
+    private Long subscriptionId;
 
     @NotNull(message = "User is mandatory")
-    private User user;
+    private Long hostUserId;
 }

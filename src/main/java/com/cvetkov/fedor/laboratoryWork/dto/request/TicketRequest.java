@@ -12,11 +12,12 @@ import javax.validation.constraints.Positive;
 @AllArgsConstructor
 public class TicketRequest {
 
+    private Long id;
     @Positive(message = "Price must be greater than zero")
     private Integer price;
 
     @NotNull(message = "Concert is mandatory")
-    private Long concert;
+    private Long concertId;
 
-    private Long user;
+    private Long userId;
 }

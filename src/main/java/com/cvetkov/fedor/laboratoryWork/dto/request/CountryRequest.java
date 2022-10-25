@@ -12,6 +12,8 @@ import javax.validation.constraints.NotBlank;
 @AllArgsConstructor
 public class CountryRequest {
 
+    private Long id;
+
     @NotBlank(message = "CountryName is mandatory")
     private String countryName;
 }
