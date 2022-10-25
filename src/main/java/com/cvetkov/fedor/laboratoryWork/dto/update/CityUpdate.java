@@ -18,5 +18,5 @@ public class CityUpdate {
     private String cityName;
 
     @NotNull(message = "Country is mandatory")
-    private Long country;
+    private Long countryId;
 }

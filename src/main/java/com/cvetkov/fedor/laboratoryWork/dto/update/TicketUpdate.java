@@ -18,7 +18,7 @@ public class TicketUpdate {
     private Integer price;
 
     @NotNull(message = "Concert is mandatory")
-    private Long concert;
+    private Long concertId;
 
-    private Long user;
+    private Long userId;
 }
