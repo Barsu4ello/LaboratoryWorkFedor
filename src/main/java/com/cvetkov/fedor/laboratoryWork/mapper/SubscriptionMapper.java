@@ -1,12 +1,8 @@
 package com.cvetkov.fedor.laboratoryWork.mapper;
 
-import com.cvetkov.fedor.laboratoryWork.dto.request.CountryRequest;
 import com.cvetkov.fedor.laboratoryWork.dto.request.SubscriptionRequest;
-import com.cvetkov.fedor.laboratoryWork.dto.response.CountryResponse;
 import com.cvetkov.fedor.laboratoryWork.dto.response.SubscriptionResponse;
-import com.cvetkov.fedor.laboratoryWork.dto.update.CountryUpdate;
 import com.cvetkov.fedor.laboratoryWork.dto.update.SubscriptionUpdate;
-import com.cvetkov.fedor.laboratoryWork.model.Country;
 import com.cvetkov.fedor.laboratoryWork.model.Subscription;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;

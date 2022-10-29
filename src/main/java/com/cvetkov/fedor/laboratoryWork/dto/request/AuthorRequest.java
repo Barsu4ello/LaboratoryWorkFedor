@@ -11,6 +11,8 @@ import javax.validation.constraints.NotBlank;
 @AllArgsConstructor
 public class AuthorRequest {
 
+    private Long id;
+
     @NotBlank(message = "Name is mandatory")
     private String name;
 

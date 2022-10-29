@@ -17,7 +17,6 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class UserSubscriptionServiceImpl implements UserSubscriptionService {
-
     private final UserSubscriptionRepository userSubscriptionRepository;
     private final UserSubscriptionMapper userSubscriptionMapper;
 

@@ -1,3 +1,7 @@
+insert into roles (role)
+values
+    ('ADMIN'),('USER');
+
 insert into countries (country_name)
 values
 ('Russian'),('America');
@@ -34,12 +38,12 @@ values
     ('Third audio', 3),
     ('Fourth audio', 3);
 
-insert into users (username, password, user_status, city_id, author)
+insert into users (username, password, user_status, role, city_id, author)
 values
-    ('Aleksandr', 'Aleksandr', 'ACTIVE', 1, 1),
-    ('Danil', 'Danil', 'ACTIVE', 2, 1),
-    ('Egor', 'Egor', 'ACTIVE',3, 2),
-    ('Anna', 'Anna', 'ACTIVE', 4, 3);
+    ('Aleksandr', 'Aleksandr', 'ACTIVE', 1, 1, 1),
+    ('Danil', 'Danil', 'ACTIVE', 2, 2, 1),
+    ('Egor', 'Egor', 'ACTIVE', 2, 3, 2),
+    ('Anna', 'Anna', 'ACTIVE', 2, 4, 3);
 
 insert into tickets (price, concert_id, user_id)
 values

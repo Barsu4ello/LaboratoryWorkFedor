@@ -1,14 +1,8 @@
 package com.cvetkov.fedor.laboratoryWork.mapper;
 
-import com.cvetkov.fedor.laboratoryWork.dto.request.SubscriptionRequest;
 import com.cvetkov.fedor.laboratoryWork.dto.request.TicketRequest;
-import com.cvetkov.fedor.laboratoryWork.dto.response.AudioResponse;
-import com.cvetkov.fedor.laboratoryWork.dto.response.SubscriptionResponse;
 import com.cvetkov.fedor.laboratoryWork.dto.response.TicketResponse;
-import com.cvetkov.fedor.laboratoryWork.dto.update.SubscriptionUpdate;
 import com.cvetkov.fedor.laboratoryWork.dto.update.TicketUpdate;
-import com.cvetkov.fedor.laboratoryWork.model.Audio;
-import com.cvetkov.fedor.laboratoryWork.model.Subscription;
 import com.cvetkov.fedor.laboratoryWork.model.Ticket;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.Converter;

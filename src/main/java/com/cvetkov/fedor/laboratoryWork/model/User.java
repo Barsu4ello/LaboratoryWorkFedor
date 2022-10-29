@@ -1,6 +1,6 @@
 package com.cvetkov.fedor.laboratoryWork.model;
 
-import com.cvetkov.fedor.laboratoryWork.enums.UserStatus;
+import com.cvetkov.fedor.laboratoryWork.util.enums.UserStatus;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -30,10 +30,15 @@ public class User {
     @Column(name = "password")
     private String password;
 
-    @NotNull(message = "USer status is mandatory")
+    @NotNull(message = "UserStatus status is mandatory")
     @Column(name = "user_status")
     @Enumerated(EnumType.STRING)
     private UserStatus status;
+
+    @NotNull(message = "Role is mandatory")
+    @ManyToOne
+    @JoinColumn(name = "role")
+    private RoleEntity role;
 
     @ManyToOne
     @JoinColumn(name = "author")

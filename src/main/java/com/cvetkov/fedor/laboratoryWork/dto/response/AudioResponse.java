@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class AudioResponse{
+public class AudioResponse {
 
     private Long id;
     private String title;

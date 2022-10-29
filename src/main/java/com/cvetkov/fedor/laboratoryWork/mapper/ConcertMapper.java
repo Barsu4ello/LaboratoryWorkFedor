@@ -1,12 +1,8 @@
 package com.cvetkov.fedor.laboratoryWork.mapper;
 
-import com.cvetkov.fedor.laboratoryWork.dto.request.CityRequest;
 import com.cvetkov.fedor.laboratoryWork.dto.request.ConcertRequest;
-import com.cvetkov.fedor.laboratoryWork.dto.response.CityResponse;
 import com.cvetkov.fedor.laboratoryWork.dto.response.ConcertResponse;
-import com.cvetkov.fedor.laboratoryWork.dto.update.CityUpdate;
 import com.cvetkov.fedor.laboratoryWork.dto.update.ConcertUpdate;
-import com.cvetkov.fedor.laboratoryWork.model.City;
 import com.cvetkov.fedor.laboratoryWork.model.Concert;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.Converter;

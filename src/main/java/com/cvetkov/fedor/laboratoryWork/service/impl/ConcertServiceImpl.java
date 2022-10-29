@@ -4,7 +4,6 @@ import com.cvetkov.fedor.laboratoryWork.dto.request.ConcertRequest;
 import com.cvetkov.fedor.laboratoryWork.dto.response.ConcertResponse;
 import com.cvetkov.fedor.laboratoryWork.dto.update.ConcertUpdate;
 import com.cvetkov.fedor.laboratoryWork.exception.ObjectNotFoundException;
-import com.cvetkov.fedor.laboratoryWork.mapper.CityMapper;
 import com.cvetkov.fedor.laboratoryWork.mapper.ConcertMapper;
 import com.cvetkov.fedor.laboratoryWork.repository.ConcertRepository;
 import com.cvetkov.fedor.laboratoryWork.service.ConcertService;
@@ -18,7 +17,6 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class ConcertServiceImpl implements ConcertService {
-
     private final ConcertRepository concertRepository;
     private final ConcertMapper concertMapper;
 

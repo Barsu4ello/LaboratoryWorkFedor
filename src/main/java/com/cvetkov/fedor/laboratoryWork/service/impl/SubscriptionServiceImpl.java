@@ -4,7 +4,6 @@ import com.cvetkov.fedor.laboratoryWork.dto.request.SubscriptionRequest;
 import com.cvetkov.fedor.laboratoryWork.dto.response.SubscriptionResponse;
 import com.cvetkov.fedor.laboratoryWork.dto.update.SubscriptionUpdate;
 import com.cvetkov.fedor.laboratoryWork.exception.ObjectNotFoundException;
-import com.cvetkov.fedor.laboratoryWork.mapper.CountryMapper;
 import com.cvetkov.fedor.laboratoryWork.mapper.SubscriptionMapper;
 import com.cvetkov.fedor.laboratoryWork.repository.SubscriptionRepository;
 import com.cvetkov.fedor.laboratoryWork.service.SubscriptionService;
@@ -18,10 +17,8 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class SubscriptionServiceImpl implements SubscriptionService {
-
     private final SubscriptionRepository subscriptionRepository;
     private final SubscriptionMapper subscriptionMapper;
-
 
     @Override
     public Page<SubscriptionResponse> getAllPage(Pageable pageable) {

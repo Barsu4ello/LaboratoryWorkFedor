@@ -4,22 +4,26 @@ import com.cvetkov.fedor.laboratoryWork.dto.request.CountryRequest;
 import com.cvetkov.fedor.laboratoryWork.dto.response.CountryResponse;
 import com.cvetkov.fedor.laboratoryWork.dto.update.CountryUpdate;
 import com.cvetkov.fedor.laboratoryWork.exception.ObjectNotFoundException;
-import com.cvetkov.fedor.laboratoryWork.mapper.ConcertMapper;
 import com.cvetkov.fedor.laboratoryWork.mapper.CountryMapper;
+import com.cvetkov.fedor.laboratoryWork.model.City;
+import com.cvetkov.fedor.laboratoryWork.repository.CityRepository;
 import com.cvetkov.fedor.laboratoryWork.repository.CountryRepository;
+import com.cvetkov.fedor.laboratoryWork.service.CityService;
 import com.cvetkov.fedor.laboratoryWork.service.CountryService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Service
 @RequiredArgsConstructor
 public class CountryServiceImpl implements CountryService {
-
     private final CountryRepository countryRepository;
+    private final CityService cityService;
+    private final CityRepository cityRepository;
     private final CountryMapper countryMapper;
 
     @Override
@@ -51,7 +55,12 @@ public class CountryServiceImpl implements CountryService {
     }
 
     @Override
+    @Transactional
     public void deleteById(Long id) {
+        List<City> cities = cityRepository.findCitiesByCountryId(id);
+        for (City city : cities) {
+            cityService.deleteById(city.getId());
+        }
         countryRepository.deleteById(id);
     }
 }

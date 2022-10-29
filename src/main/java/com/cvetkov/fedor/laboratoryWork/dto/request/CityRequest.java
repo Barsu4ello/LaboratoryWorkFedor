@@ -1,6 +1,5 @@
 package com.cvetkov.fedor.laboratoryWork.dto.request;
 
-import com.cvetkov.fedor.laboratoryWork.model.Country;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,9 +12,11 @@ import javax.validation.constraints.NotNull;
 @AllArgsConstructor
 public class CityRequest {
 
+    private Long id;
+
     @NotBlank(message = "CityName is mandatory")
     private String cityName;
 
     @NotNull(message = "Country is mandatory")
-    private Long country;
+    private Long countryId;
 }

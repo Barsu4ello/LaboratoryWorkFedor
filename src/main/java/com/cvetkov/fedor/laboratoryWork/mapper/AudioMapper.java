@@ -11,7 +11,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
-import java.io.UnsupportedEncodingException;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -55,7 +54,7 @@ public class AudioMapper {
                 .collect(Collectors.toList());
     }
 
-    public Page<AudioResponse>  audioToAudioResponsePage(Page<Audio> audioPage) {
+    public Page<AudioResponse> audioToAudioResponsePage(Page<Audio> audioPage) {
         return audioPage
                 .map(this::audioToAudioResponse);
     }

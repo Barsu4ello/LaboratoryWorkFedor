@@ -20,4 +20,6 @@ public interface UserService {
     void update(UserUpdate userUpdate);
 
     void deleteById(Long id);
+
+     void addAudiosByIdForUser (Long userId, List<Long> audiosId);
 }

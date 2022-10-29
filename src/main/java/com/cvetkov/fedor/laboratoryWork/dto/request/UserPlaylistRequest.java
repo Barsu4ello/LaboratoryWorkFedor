@@ -12,6 +12,8 @@ import javax.validation.constraints.NotNull;
 @AllArgsConstructor
 public class UserPlaylistRequest {
 
+    private Long id;
+
     @NotBlank(message = "Title is mandatory")
     private String title;
 
@@ -19,5 +21,5 @@ public class UserPlaylistRequest {
     private String description;
 
     @NotNull(message = "User is mandatory")
-    private Long user;
+    private Long userId;
 }

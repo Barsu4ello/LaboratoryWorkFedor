@@ -1,12 +1,8 @@
 package com.cvetkov.fedor.laboratoryWork.mapper;
 
-import com.cvetkov.fedor.laboratoryWork.dto.request.AudioRequest;
 import com.cvetkov.fedor.laboratoryWork.dto.request.AuthorRequest;
-import com.cvetkov.fedor.laboratoryWork.dto.response.AudioResponse;
 import com.cvetkov.fedor.laboratoryWork.dto.response.AuthorResponse;
-import com.cvetkov.fedor.laboratoryWork.dto.update.AudioUpdate;
 import com.cvetkov.fedor.laboratoryWork.dto.update.AuthorUpdate;
-import com.cvetkov.fedor.laboratoryWork.model.Audio;
 import com.cvetkov.fedor.laboratoryWork.model.Author;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
