@@ -1,3 +1,9 @@
+create table roles
+(
+    id           serial PRIMARY KEY,
+    role varchar(256) NOT NULL
+);
+
 create table countries
 (
     id           bigserial PRIMARY KEY,
@@ -55,6 +61,8 @@ create table users
     user_status varchar(128) NOT NULL,
     city_id     bigint      ,
     author      bigint      ,
+    role      int      ,
+    FOREIGN KEY (role) REFERENCES roles (id),
     FOREIGN KEY (city_id) REFERENCES cities (id),
     FOREIGN KEY (author) REFERENCES authors (id)
 );

@@ -5,7 +5,6 @@ import com.cvetkov.fedor.laboratoryWork.dto.response.AudioResponse;
 import com.cvetkov.fedor.laboratoryWork.dto.update.AudioUpdate;
 import com.cvetkov.fedor.laboratoryWork.exception.ObjectNotFoundException;
 import com.cvetkov.fedor.laboratoryWork.mapper.AudioMapper;
-import com.cvetkov.fedor.laboratoryWork.model.Audio;
 import com.cvetkov.fedor.laboratoryWork.repository.AudioRepository;
 import com.cvetkov.fedor.laboratoryWork.service.AudioService;
 import lombok.RequiredArgsConstructor;
@@ -18,9 +17,9 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class AudioServiceImpl implements AudioService {
-
     private final AudioRepository audioRepository;
     private final AudioMapper audioMapper;
+
     @Override
     public Page<AudioResponse> getAllPage(Pageable pageable) {
         return audioMapper.audioToAudioResponsePage(audioRepository.findAll(pageable));

@@ -1,6 +1,6 @@
 package com.cvetkov.fedor.laboratoryWork.dto.request;
 
-import com.cvetkov.fedor.laboratoryWork.enums.UserStatus;
+import com.cvetkov.fedor.laboratoryWork.util.enums.UserStatus;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -21,10 +21,13 @@ public class UserRequest {
     @NotBlank(message = "Password is mandatory")
     private String password;
 
-    @NotNull(message =  "Status is mandatory")
+    @NotNull(message = "Status is mandatory")
     private UserStatus status;
+
+    @NotNull(message =  "Role is mandatory")
+    private Integer roleId;
 
     private Long cityId;
 
-    private Long author;
+    private Long authorId;
 }

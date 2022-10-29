@@ -21,7 +21,6 @@ import java.util.stream.Collectors;
 @Service
 @RequiredArgsConstructor
 public class AuthorServiceImpl implements AuthorService {
-
     private final AuthorRepository authorRepository;
     private final UserRepository userRepository;
     private final AuthorMapper authorMapper;

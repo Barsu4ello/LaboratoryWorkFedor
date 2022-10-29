@@ -45,7 +45,6 @@ public class Audio {
         return "Audio{" +
                 "id=" + id +
                 ", title='" + title + '\'' +
-                ", audio=" + audio +
                 ", author=" + author.getId() +
                 '}';
     }

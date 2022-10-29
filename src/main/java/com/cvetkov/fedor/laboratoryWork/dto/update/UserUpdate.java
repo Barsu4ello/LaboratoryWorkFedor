@@ -1,10 +1,12 @@
 package com.cvetkov.fedor.laboratoryWork.dto.update;
 
+import com.cvetkov.fedor.laboratoryWork.util.enums.UserStatus;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 @Data
 @NoArgsConstructor
@@ -19,5 +21,13 @@ public class UserUpdate {
     @NotBlank(message = "Password is mandatory")
     private String password;
 
-    private Long author;
+    @NotNull(message = "Status is mandatory")
+    private UserStatus status;
+
+    @NotNull(message = "Role is mandatory")
+    private Integer roleId;
+
+    private Long cityId;
+
+    private Long authorId;
 }

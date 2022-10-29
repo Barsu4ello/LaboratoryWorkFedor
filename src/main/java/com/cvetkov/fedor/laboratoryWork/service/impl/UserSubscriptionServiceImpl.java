@@ -5,7 +5,6 @@ import com.cvetkov.fedor.laboratoryWork.dto.response.UserSubscriptionResponse;
 import com.cvetkov.fedor.laboratoryWork.dto.update.UserSubscriptionUpdate;
 import com.cvetkov.fedor.laboratoryWork.exception.ObjectNotFoundException;
 import com.cvetkov.fedor.laboratoryWork.mapper.UserSubscriptionMapper;
-import com.cvetkov.fedor.laboratoryWork.model.UserSubscription;
 import com.cvetkov.fedor.laboratoryWork.repository.UserSubscriptionRepository;
 import com.cvetkov.fedor.laboratoryWork.service.UserSubscriptionService;
 import lombok.RequiredArgsConstructor;
@@ -18,7 +17,6 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class UserSubscriptionServiceImpl implements UserSubscriptionService {
-
     private final UserSubscriptionRepository userSubscriptionRepository;
     private final UserSubscriptionMapper userSubscriptionMapper;
 
@@ -47,7 +45,6 @@ public class UserSubscriptionServiceImpl implements UserSubscriptionService {
 
     @Override
     public void update(UserSubscriptionUpdate userSubscriptionUpdate) {
-        UserSubscription user = userSubscriptionMapper.userSubscriptionUpdateToUserSubscription(userSubscriptionUpdate);
         userSubscriptionRepository.save(userSubscriptionMapper.userSubscriptionUpdateToUserSubscription(userSubscriptionUpdate));
     }
 

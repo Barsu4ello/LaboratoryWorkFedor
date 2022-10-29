@@ -3,7 +3,6 @@ package com.cvetkov.fedor.laboratoryWork.service;
 import com.cvetkov.fedor.laboratoryWork.dto.request.UserPlaylistRequest;
 import com.cvetkov.fedor.laboratoryWork.dto.response.UserPlaylistResponse;
 import com.cvetkov.fedor.laboratoryWork.dto.update.UserPlaylistUpdate;
-import com.cvetkov.fedor.laboratoryWork.dto.update.UserUpdate;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 

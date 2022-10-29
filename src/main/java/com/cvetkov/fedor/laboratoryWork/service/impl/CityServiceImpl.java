@@ -21,7 +21,6 @@ import java.util.stream.Collectors;
 @Service
 @RequiredArgsConstructor
 public class CityServiceImpl implements CityService {
-
     private final CityRepository cityRepository;
     private final UserRepository userRepository;
     private final CityMapper cityMapper;

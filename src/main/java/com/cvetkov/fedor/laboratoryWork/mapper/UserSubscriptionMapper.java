@@ -1,12 +1,8 @@
 package com.cvetkov.fedor.laboratoryWork.mapper;
 
-import com.cvetkov.fedor.laboratoryWork.dto.request.UserPlaylistRequest;
 import com.cvetkov.fedor.laboratoryWork.dto.request.UserSubscriptionRequest;
-import com.cvetkov.fedor.laboratoryWork.dto.response.UserPlaylistResponse;
 import com.cvetkov.fedor.laboratoryWork.dto.response.UserSubscriptionResponse;
-import com.cvetkov.fedor.laboratoryWork.dto.update.UserPlaylistUpdate;
 import com.cvetkov.fedor.laboratoryWork.dto.update.UserSubscriptionUpdate;
-import com.cvetkov.fedor.laboratoryWork.model.UserPlaylist;
 import com.cvetkov.fedor.laboratoryWork.model.UserSubscription;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.Converter;

@@ -1,6 +1,5 @@
 package com.cvetkov.fedor.laboratoryWork.dto.request;
 
-import com.cvetkov.fedor.laboratoryWork.model.Country;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

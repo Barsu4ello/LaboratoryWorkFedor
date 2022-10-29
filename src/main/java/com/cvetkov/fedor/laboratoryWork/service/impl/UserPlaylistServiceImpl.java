@@ -3,9 +3,7 @@ package com.cvetkov.fedor.laboratoryWork.service.impl;
 import com.cvetkov.fedor.laboratoryWork.dto.request.UserPlaylistRequest;
 import com.cvetkov.fedor.laboratoryWork.dto.response.UserPlaylistResponse;
 import com.cvetkov.fedor.laboratoryWork.dto.update.UserPlaylistUpdate;
-import com.cvetkov.fedor.laboratoryWork.dto.update.UserUpdate;
 import com.cvetkov.fedor.laboratoryWork.exception.ObjectNotFoundException;
-import com.cvetkov.fedor.laboratoryWork.mapper.TicketMapper;
 import com.cvetkov.fedor.laboratoryWork.mapper.UserPlaylistMapper;
 import com.cvetkov.fedor.laboratoryWork.repository.UserPlaylistRepository;
 import com.cvetkov.fedor.laboratoryWork.service.UserPlaylistService;
@@ -19,7 +17,6 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class UserPlaylistServiceImpl implements UserPlaylistService {
-
     private final UserPlaylistRepository userPlaylistRepository;
     private final UserPlaylistMapper userPlaylistMapper;
 

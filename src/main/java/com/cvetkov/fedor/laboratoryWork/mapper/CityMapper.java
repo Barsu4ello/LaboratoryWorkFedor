@@ -1,14 +1,8 @@
 package com.cvetkov.fedor.laboratoryWork.mapper;
 
-import com.cvetkov.fedor.laboratoryWork.dto.request.AuthorRequest;
 import com.cvetkov.fedor.laboratoryWork.dto.request.CityRequest;
-import com.cvetkov.fedor.laboratoryWork.dto.response.AudioResponse;
-import com.cvetkov.fedor.laboratoryWork.dto.response.AuthorResponse;
 import com.cvetkov.fedor.laboratoryWork.dto.response.CityResponse;
-import com.cvetkov.fedor.laboratoryWork.dto.update.AuthorUpdate;
 import com.cvetkov.fedor.laboratoryWork.dto.update.CityUpdate;
-import com.cvetkov.fedor.laboratoryWork.model.Audio;
-import com.cvetkov.fedor.laboratoryWork.model.Author;
 import com.cvetkov.fedor.laboratoryWork.model.City;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.Converter;

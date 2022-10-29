@@ -1,7 +1,5 @@
 package com.cvetkov.fedor.laboratoryWork.dto.response;
 
-import com.cvetkov.fedor.laboratoryWork.model.Subscription;
-import com.cvetkov.fedor.laboratoryWork.model.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

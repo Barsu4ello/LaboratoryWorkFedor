@@ -1,14 +1,8 @@
 package com.cvetkov.fedor.laboratoryWork.mapper;
 
-import com.cvetkov.fedor.laboratoryWork.dto.request.SubscriptionRequest;
 import com.cvetkov.fedor.laboratoryWork.dto.request.TicketRequest;
-import com.cvetkov.fedor.laboratoryWork.dto.response.AudioResponse;
-import com.cvetkov.fedor.laboratoryWork.dto.response.SubscriptionResponse;
 import com.cvetkov.fedor.laboratoryWork.dto.response.TicketResponse;
-import com.cvetkov.fedor.laboratoryWork.dto.update.SubscriptionUpdate;
 import com.cvetkov.fedor.laboratoryWork.dto.update.TicketUpdate;
-import com.cvetkov.fedor.laboratoryWork.model.Audio;
-import com.cvetkov.fedor.laboratoryWork.model.Subscription;
 import com.cvetkov.fedor.laboratoryWork.model.Ticket;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.Converter;
@@ -32,11 +26,6 @@ public class TicketMapper {
                 .addMappings(m -> m.skip(TicketResponse::setUser))
                 .addMappings(m -> m.skip(TicketResponse::setConcert))
                 .setPostConverter(toTicketResponseConverter());
-
-//        mapper.createTypeMap(TicketRequest.class, Ticket.class)
-//                .addMappings(m -> m.skip(Ticket::setId))
-////                .addMappings(m -> m.skip(Ticket::setConcert));
-//                .setPostConverter(toTicketConverter());
     }
 
     private Converter<Ticket, TicketResponse> toTicketResponseConverter() {
@@ -48,24 +37,6 @@ public class TicketMapper {
             return context.getDestination();
         };
     }
-
-//    @PostConstruct
-//    public void setupMapper() {
-//        mapper.createTypeMap(TicketRequest.class, Ticket.class)
-//                .addMappings(m -> m.skip(Ticket::setUser))
-//                .addMappings(m -> m.skip(Ticket::setConcert))
-//                .setPostConverter(toTicketConverter());
-//    }
-
-//    private Converter<TicketRequest, Ticket> toTicketConverter() {
-//        return context -> {
-//            TicketRequest source = context.getSource();
-//            Ticket destination = context.getDestination();
-////            destination.setUser(source.getUserId());
-////            destination.setConcert(source.getConcertId());
-//            return context.getDestination();
-//        };
-//    }
 
     public TicketResponse ticketToTicketResponse(Ticket ticket) {
         return mapper.map(ticket, TicketResponse.class);
