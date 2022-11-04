@@ -10,6 +10,7 @@ import com.cvetkov.fedor.laboratoryWork.security.responseDto.MessageResponse;
 import com.cvetkov.fedor.laboratoryWork.security.responseDto.UserInfoResponse;
 import com.cvetkov.fedor.laboratoryWork.security.service.UserDetailsImpl;
 import lombok.RequiredArgsConstructor;
+import org.springframework.context.annotation.Profile;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseCookie;
 import org.springframework.http.ResponseEntity;
@@ -26,6 +27,7 @@ import javax.validation.Valid;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/v1/auth")
+@Profile("!test")
 public class AuthController {
     private final AuthenticationManager authenticationManager;
     private final UserRepository userRepository;

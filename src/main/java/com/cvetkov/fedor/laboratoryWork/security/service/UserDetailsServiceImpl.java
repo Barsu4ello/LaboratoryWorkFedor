@@ -3,6 +3,7 @@ package com.cvetkov.fedor.laboratoryWork.security.service;
 import com.cvetkov.fedor.laboratoryWork.model.User;
 import com.cvetkov.fedor.laboratoryWork.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.context.annotation.Profile;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -11,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @RequiredArgsConstructor
+@Profile("!test")
 public class UserDetailsServiceImpl implements UserDetailsService {
 
     private final UserRepository userRepository;

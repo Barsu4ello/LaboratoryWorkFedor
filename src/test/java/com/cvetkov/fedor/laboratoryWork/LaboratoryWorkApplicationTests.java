@@ -1,13 +1,23 @@
 package com.cvetkov.fedor.laboratoryWork;
 
-import org.junit.jupiter.api.Test;
+import com.cvetkov.fedor.laboratoryWork.initialiser.Postgres;
+import org.junit.jupiter.api.BeforeAll;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ActiveProfiles;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.transaction.annotation.Transactional;
 
+@ActiveProfiles("test")
 @SpringBootTest
-class LaboratoryWorkApplicationTests {
+@ContextConfiguration(initializers = {
+		Postgres.Initializer.class
+})
+@Transactional
+public abstract class LaboratoryWorkApplicationTests {
 
-	@Test
-	void contextLoads() {
+	@BeforeAll
+	static void init() {
+		Postgres.container.start();
 	}
 
 }

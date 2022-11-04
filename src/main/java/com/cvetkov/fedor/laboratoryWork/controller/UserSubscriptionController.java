@@ -35,7 +35,7 @@ public class UserSubscriptionController {
 
     @GetMapping("/{id}")
     @PreAuthorize("hasAnyAuthority('ADMIN','USER')")
-    public UserSubscriptionResponse getUserPlaylistById(@PathVariable Long id) {
+    public UserSubscriptionResponse getUserSubscriptionById(@PathVariable Long id) {
         return userSubscriptionService.findById(id);
     }
 
